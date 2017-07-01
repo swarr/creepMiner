@@ -167,9 +167,9 @@ Burst::PlotVerifier::DeadlineTuple Burst::PlotVerifier::verify(
 	// hash the gensig according to the cpu instruction level
 	hash.update(gensig.data(), hashSize);
 
-#if USE_AVX || USE_AVX2 || USE_SSE4
 	// hash the scoop according to the cpu instruction level
 	hash.update(buffer.data() + offset + 0,
+#if USE_AVX || USE_AVX2 || USE_SSE4
 				buffer.data() + offset + 1,
 				buffer.data() + offset + 2,
 				buffer.data() + offset + 3,
@@ -182,9 +182,9 @@ Burst::PlotVerifier::DeadlineTuple Burst::PlotVerifier::verify(
 #endif
 	            scoopSize);
 
-#if USE_AVX || USE_AVX2 || USE_SSE4
 	// digest the hash
 	hash.close(targets[0].data()
+#if USE_AVX || USE_AVX2 || USE_SSE4
 	          ,targets[1].data(),
 	           targets[2].data(),
 	           targets[3].data()
