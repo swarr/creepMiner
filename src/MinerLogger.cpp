@@ -589,7 +589,7 @@ void Burst::MinerLogger::setup()
 
 		splitter->addChannel(consoleChannel);
 		splitter->addChannel(websocketChannel);
-		splitter->addChannel(fileFormatter_);
+		//splitter->addChannel(fileFormatter_);
 
 		Poco::Logger::get(channel.name).setChannel(splitter);
 	}
