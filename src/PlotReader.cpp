@@ -196,11 +196,11 @@ void Burst::PlotReader::runTask()
 
 							verificationQueue_->enqueueNotification(verification);
 
-							if (progress_ != nullptr)
-							{
-								progress_->add(staggerChunkBytes * Settings::ScoopPerPlot, plotReadNotification->blockheight);
-								miner_.getData().getBlockData()->setProgress(progress_->getProgress(), plotReadNotification->blockheight);
-							}
+							//if (progress_ != nullptr)
+							//{
+							//	progress_->add(staggerChunkBytes * Settings::ScoopPerPlot, plotReadNotification->blockheight);
+							//	miner_.getData().getBlockData()->setProgress(progress_->getProgress(), plotReadNotification->blockheight);
+							//}
 
 							// check, if the incoming plot-read-notification is for the current round
 							currentBlock = plotReadNotification->blockheight == miner_.getBlockheight();
